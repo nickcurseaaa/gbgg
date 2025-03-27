@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#000000">
   <title>Your DApp</title>
   <style>
-    /* CSS for full screen */
     html, body {
       margin: 0;
       padding: 0;
@@ -21,14 +20,10 @@
       align-items: center;
       font-family: Arial, sans-serif;
     }
-
-    /* Style your content */
     h1 {
       font-size: 2rem;
       text-align: center;
     }
-
-    /* Style the fullscreen button */
     #fullscreen-btn {
       position: absolute;
       bottom: 20px;
@@ -42,7 +37,6 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     #fullscreen-btn:hover {
       background-color: #ff7f00;
     }
@@ -52,46 +46,36 @@
 
   <h1>Welcome to My DApp!</h1>
   
-  <!-- Button to toggle fullscreen mode -->
   <button id="fullscreen-btn">Go Fullscreen</button>
 
   <script>
-    // Function to toggle fullscreen mode
     function toggleFullscreen() {
       if (!document.fullscreenElement) {
-        // If not in fullscreen, request fullscreen mode
         if (document.documentElement.requestFullscreen) {
           document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        } else if (document.documentElement.mozRequestFullScreen) {
           document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        } else if (document.documentElement.webkitRequestFullscreen) {
           document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        } else if (document.documentElement.msRequestFullscreen) {
           document.documentElement.msRequestFullscreen();
         }
       } else {
-        // If in fullscreen, exit fullscreen mode
         if (document.exitFullscreen) {
           document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { // Firefox
+        } else if (document.mozCancelFullScreen) {
           document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+        } else if (document.webkitExitFullscreen) {
           document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { // IE/Edge
+        } else if (document.msExitFullscreen) {
           document.msExitFullscreen();
         }
       }
     }
 
-    // Automatically enter fullscreen when the page loads
-    window.onload = function() {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      }
-    };
-
-    // Listen for the button click to trigger fullscreen mode
+    // This is to ensure the fullscreen request is triggered by user interaction
     document.getElementById("fullscreen-btn").addEventListener("click", toggleFullscreen);
   </script>
+
 </body>
 </html>
